@@ -369,6 +369,8 @@ html.hint-on .cv-logo{opacity:.32}
 .plc.pl-art.alt .pl-gram{opacity:1;transform:none}
 .plc.pl-art.alt .pl-cover{opacity:0;transform:scale(.9)}
 
+footer .footer-meta{margin-top:calc(var(--fgap,25px) + 58px)}
+
 @media (prefers-reduced-motion:reduce){.cue i{animation:none}.rv,main,#tl-feier li.rv{transition:none;transform:none}}
 </style>
 
@@ -1199,7 +1201,7 @@ function measure(){
   for(let i = 0; i < box.length - 1; i++) bounds.push(Math.round((box[i][1] + box[i + 1][0]) / 2));
   for(const it of items){ const r = it.el.getBoundingClientRect(); it.vis = r.width > 0; it.x = r.left - it.P; it.y = r.top + sy - it.P; }
   rvs = $$('.rv', main).map((el) => ({ el, y: el.getBoundingClientRect().top + sy }));
-  const fl = secEls[secEls.length - 1] && secEls[secEls.length - 1].lastElementChild; footY = fl ? fl.getBoundingClientRect().bottom + sy : docH - 120;
+  let fl = secEls[secEls.length - 1] && secEls[secEls.length - 1].lastElementChild; if(fl && fl.classList.contains('footer-meta')) fl = fl.previousElementSibling; footY = fl ? fl.getBoundingClientRect().bottom + sy : docH - 120;
   for(const a of $$('[data-go]')){ const el = document.getElementById(a.dataset.go); if(el) el._top = el.getBoundingClientRect().top + sy; }
 }
 const secRange = (i) => [i ? bounds[i - 1] : -400, i < bounds.length ? bounds[i] : docH + 400];
@@ -1337,6 +1339,8 @@ function applyColors(){
   const N = CFG.sections.length, topC = CFG.frame.top.mode === 'flow' ? CFG.sections[0].paper.paper : op, botC = CFG.frame.bottom.mode === 'flow' ? CFG.sections[N - 1].paper.paper : op;
   const open = st === 'open', tcm = $('meta[name="theme-color"]'); if(tcm) tcm.content = open ? topC : op;
   root.style.setProperty('--cover', open ? topC : op); root.style.setProperty('--edgeT', open ? topC : op); root.style.setProperty('--edgeB', open ? botC : op); const pgC = open ? (curSec >= N / 2 ? botC : topC) : op; root.style.backgroundColor = document.body.style.backgroundColor = pgC;
+  // Impressum / Datenschutz / herzn.de lie on the bottom background below the last sheet's edge
+  const fm = $('.footer-meta'); if(fm){ const fc = textCols(botC); fm.style.setProperty('--ink', fc.ink); fm.style.setProperty('--mut', `rgba(${fc.rgb},.74)`); fm.style.setProperty('--line', `rgba(${fc.rgb},.24)`); fm.style.setProperty('--fgap', (CFG.frame.bottom.mode === 'flow' ? 0 : (CFG.frame.bottom.gap || 0)) + 'px'); }
   $('.bleed.t').style.backgroundColor = open ? topC : op; $('.bleed.b').style.backgroundColor = open ? botC : op;
   // the page dock takes the colours of the sheet that is on screen
   const cur = CFG.sections[curSec] || CFG.sections[0], dc = textCols(cur.paper.paper), dock = $('#dock');
