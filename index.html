@@ -346,8 +346,8 @@ html.hint-on .cv-hint{opacity:.9}
 .map-art{display:block;width:100%;height:200px}
 @media(max-width:520px){.map-art{height:180px}}
 /* herzn logo: footer and opener corner */
-.footer-credit .brand-logo{display:inline-block;vertical-align:-.45px;line-height:0;color:var(--ink);margin-left:4px}
-.footer-credit .brand-logo svg{height:15px;width:auto;display:block}
+.footer-credit .brand-logo{display:inline-block;vertical-align:-.03em;line-height:0;color:var(--ink);margin-left:3px}
+.footer-credit .brand-logo svg{height:.93em;width:auto;display:block}
 .cv-logo{position:absolute;right:20px;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);color:#fff;opacity:0;transition:opacity .9s ease .3s;pointer-events:none;line-height:0}
 .cv-logo svg{height:11px;width:auto;display:block}
 html.hint-on .cv-logo{opacity:.32}
@@ -370,6 +370,12 @@ html.hint-on .cv-logo{opacity:.32}
 .plc.pl-art.alt .pl-cover{opacity:0;transform:scale(.9)}
 
 footer .footer-meta{margin-top:calc(var(--fgap,25px) + 58px)}
+main footer{padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+/* replay button: compact pill that hugs its label */
+footer .replay-btn{width:auto;max-width:100%;min-height:0;justify-content:flex-start;gap:14px;padding:7px 7px 7px 24px}
+footer .replay-btn .replay-label{font-size:clamp(22px,5.8vw,26px);letter-spacing:.045em;line-height:1;padding-top:.08em;white-space:nowrap}
+footer .replay-btn .replay-icon{width:40px;height:40px}
+footer .replay-btn .replay-icon svg{width:17px;height:17px}
 
 @media (prefers-reduced-motion:reduce){.cue i{animation:none}.rv,main,#tl-feier li.rv{transition:none;transform:none}}
 </style>
@@ -1174,7 +1180,7 @@ function stamp(ctx, s, ax, ay, chan, rad, soft, fn){
 
 let W = 0, VH = 0, CH = 0, docH = 0, dpr = 1, perfScale = 1;
 const M = 120, TP = 100;
-let items = [], secEls = [], bounds = [], rvs = [], cov = null, footY = 0;
+let items = [], secEls = [], bounds = [], rvs = [], cov = null, footY = 0, footGap = 0;
 const tc = document.createElement('canvas'), cvS = document.createElement('canvas'), cvB = document.createElement('canvas');
 const secOf = (el) => secEls.findIndex((s) => s.contains(el));
 
@@ -1190,6 +1196,14 @@ function metrics(){
 }
 function measure(){
   const sy = window.scrollY;
+  // last sheet: the space below the replay button down to the tear equals the space from the upper tear to the monogram
+  const lastSec = secEls[secEls.length - 1], fMeta = lastSec && lastSec.querySelector('.footer-meta');
+  if(fMeta && secEls.length > 1){
+    const prev = secEls[secEls.length - 2].getBoundingClientRect().bottom, first = lastSec.firstElementChild, cs = getComputedStyle(first);
+    const slack = Math.max(0, (parseFloat(cs.lineHeight) - parseFloat(cs.fontSize)) / 2) || 0;
+    footGap = Math.max(24, Math.round(first.getBoundingClientRect().top + 38 - (prev + lastSec.getBoundingClientRect().top) / 2));
+    fMeta.style.marginTop = (footGap + 14) + 'px';
+  } else footGap = 0;
   docH = Math.max(document.body.scrollHeight, VH);
   if(typeof CFG !== 'undefined' && CFG) buildOverlay();
   const box = secEls.map((el) => { const r = el.getBoundingClientRect(); return [r.top + sy, r.bottom + sy]; });
@@ -1197,7 +1211,7 @@ function measure(){
   for(let i = 0; i < box.length - 1; i++) bounds.push(Math.round((box[i][1] + box[i + 1][0]) / 2));
   for(const it of items){ const r = it.el.getBoundingClientRect(); it.vis = r.width > 0; it.x = r.left - it.P; it.y = r.top + sy - it.P; }
   rvs = $$('.rv', main).map((el) => ({ el, y: el.getBoundingClientRect().top + sy }));
-  let fl = secEls[secEls.length - 1] && secEls[secEls.length - 1].lastElementChild; if(fl && fl.classList.contains('footer-meta')) fl = fl.previousElementSibling; footY = fl ? fl.getBoundingClientRect().bottom + sy : docH - 120;
+  let fl = secEls[secEls.length - 1] && secEls[secEls.length - 1].lastElementChild; if(fl && fl.classList.contains('footer-meta')){ fl = fl.previousElementSibling; } footY = fl ? fl.getBoundingClientRect().bottom + sy + (footGap ? footGap - (CFG.frame.bottom.gap || 0) : 0) : docH - 120;
   for(const a of $$('[data-go]')){ const el = document.getElementById(a.dataset.go); if(el) el._top = el.getBoundingClientRect().top + sy; }
 }
 const secRange = (i) => [i ? bounds[i - 1] : -400, i < bounds.length ? bounds[i] : docH + 400];
