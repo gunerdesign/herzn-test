@@ -331,7 +331,7 @@ html.lenis,html.lenis body{height:auto}
 .lenis [data-lenis-prevent]{overscroll-behavior:contain}
 
 /* boot sheet + delayed hint and petals */
-#boot{position:fixed;left:0;right:0;top:-120px;bottom:-120px;z-index:2147483640;background:var(--boot,#2f4155);opacity:0;pointer-events:none;transition:opacity .9s ease}
+#boot{position:absolute;left:0;right:0;top:0;height:calc(100lvh + 360px);z-index:2147483640;background:var(--boot,#2f4155);opacity:0;pointer-events:none;transition:opacity .9s ease}
 html.boot #boot{opacity:1;pointer-events:auto}
 html.boot{background:var(--boot,#2f4155)}
 .cv-hint{opacity:0;transition:opacity .7s ease}
@@ -339,7 +339,7 @@ html.hint-on .cv-hint{opacity:.9}
 .petal-rain{transition:opacity 1.4s ease .6s}
 @keyframes boot-mark{from{opacity:0}to{opacity:1}}
 #boot{color:var(--boot-ink,rgba(255,255,255,.5))}
-.boot-logo{position:absolute;left:50%;top:50%;width:132px;height:auto;transform:translate(-50%,-50%);animation:boot-mark .7s ease .1s both}
+.boot-logo{position:fixed;left:50%;top:50%;width:132px;height:auto;transform:translate(-50%,-50%);animation:boot-mark .7s ease .1s both}
 
 /* map placeholder */
 .map-link{display:block;line-height:0;--map-bg:color-mix(in srgb,var(--paper) 92%,var(--ink) 8%);--map-urban:color-mix(in srgb,var(--paper) 86%,var(--ink) 14%);--map-field:color-mix(in srgb,var(--paper) 88%,#8fa77a 12%);--map-forest:color-mix(in srgb,var(--paper) 78%,#5d7a55 22%);--map-water:color-mix(in srgb,var(--paper) 62%,#7fa6c4 38%);--map-bld:color-mix(in srgb,var(--paper) 74%,var(--ink) 26%);--map-road:color-mix(in srgb,var(--paper) 50%,var(--ink) 50%);--map-road1:color-mix(in srgb,var(--paper) 30%,var(--ink) 70%);--map-pin:var(--accent,#c3cad4);--map-chip:var(--ink);--map-chip-ink:var(--paper)}
