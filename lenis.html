@@ -339,7 +339,18 @@ html.hint-on .cv-hint{opacity:.9}
 .petal-rain{transition:opacity 1.4s ease .6s}
 @keyframes boot-mark{from{opacity:0}to{opacity:1}}
 #boot{color:var(--boot-ink,rgba(255,255,255,.5))}
-.boot-logo{position:absolute;left:50%;top:50%;width:92px;height:auto;transform:translate(-50%,-50%);animation:boot-mark .5s ease .15s both}
+.boot-logo{position:absolute;left:50%;top:50%;width:132px;height:auto;transform:translate(-50%,-50%);animation:boot-mark .5s ease .15s both}
+
+/* map placeholder */
+.map-link{display:block;line-height:0;--map-bg:color-mix(in srgb,var(--paper) 90%,var(--ink) 10%);--map-field:color-mix(in srgb,var(--paper) 82%,var(--ink) 18%);--map-water:color-mix(in srgb,var(--paper) 70%,#7fa6c4 30%);--map-road:color-mix(in srgb,var(--paper) 55%,var(--ink) 45%);--map-pin:var(--accent,#c3cad4);--map-chip:var(--ink);--map-chip-ink:var(--paper)}
+.map-art{display:block;width:100%;height:200px}
+@media(max-width:520px){.map-art{height:180px}}
+/* herzn logo: footer and opener corner */
+.footer-credit .brand-logo{display:inline-block;vertical-align:-3px;color:var(--ink);margin-left:4px}
+.footer-credit .brand-logo svg{height:15px;width:auto;display:block}
+.cv-logo{position:absolute;right:20px;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);color:#fff;opacity:0;transition:opacity .9s ease .3s;pointer-events:none;line-height:0}
+.cv-logo svg{height:11px;width:auto;display:block}
+html.hint-on .cv-logo{opacity:.32}
 
 @media (prefers-reduced-motion:reduce){.cue i{animation:none}.rv,main,#tl-feier li.rv{transition:none;transform:none}}
 </style>
@@ -351,7 +362,7 @@ html.hint-on .cv-hint{opacity:.9}
 <button id="cover" type="button" aria-label="Einladung von Kathi und Max öffnen">
   <span class="cv cv-mono" aria-hidden="true">KM</span>
   <span class="cv cv-date fin" data-finish="foil" data-thick=".5">24 · 06 · 28</span>
-  <span class="cv cv-hint fin" data-finish="foil">Tippen zum Öffnen</span>
+  <span class="cv cv-hint fin" data-finish="foil">Tippen zum Öffnen</span><span class="cv-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="24 -775 3900 798" fill="currentColor"><g transform="scale(1 -1)"><path transform="translate(0 0)" d="M180 0H24V4L86 41Q97 48 101.0 54.0Q105 60 105 73L110 652Q110 666 106.0 672.5Q102 679 91 683L31 706V710L184 768H189V459Q255 542 344 542Q414 542 461.0 495.5Q508 449 508 366V73Q508 60 512.0 54.0Q516 48 527 41L589 4V0H343V4L405 41Q416 48 420.0 54.0Q424 60 424 73V332Q424 406 392.5 441.0Q361 476 310 476Q271 476 239.5 459.5Q208 443 189 421V73Q189 60 193.5 54.0Q198 48 210 41L278 4V0Z"/><path transform="translate(598 0)" d="M296 -12Q224 -12 168.5 22.5Q113 57 81.5 119.5Q50 182 50 265Q50 348 80.5 410.0Q111 472 165.5 507.0Q220 542 292 542Q359 542 410.5 511.5Q462 481 491.0 423.5Q520 366 520 286H143Q145 186 191.0 124.0Q237 62 331 62Q383 62 422.5 83.5Q462 105 498 148L508 142Q480 74 428.5 31.0Q377 -12 296 -12ZM144 321H420Q418 411 381.0 461.5Q344 512 284 512Q225 512 186.5 462.5Q148 413 144 321Z"/><path transform="translate(1155 0)" d="M178 0H23V4L85 41Q96 48 100.0 54.0Q104 60 104 73L105 429Q105 443 101.5 449.5Q98 456 87 460L30 483V487L175 545H180V378Q201 449 237.0 489.5Q273 530 342 537L352 538L359 437L344 438Q307 442 279.5 439.0Q252 436 230.0 419.0Q208 402 188 364V80Q188 66 193.0 59.5Q198 53 213 45L293 4V0Z"/><path transform="translate(1519 0)" d="M450 530V520L142 35H347Q364 35 373.5 40.0Q383 45 394 60L453 142H458L448 18L446 0H27V10L335 495H164Q147 495 139.0 490.0Q131 485 122 471L71 392H66L69 507L70 530Z"/><path transform="translate(2005 0)" d="M316 469Q277 469 242.5 455.0Q208 441 188 427V73Q188 60 192.0 54.0Q196 48 207 41L269 4V0H23V4L85 41Q96 48 100.0 54.0Q104 60 104 73L105 429Q105 443 101.0 449.5Q97 456 86 460L26 483V487L179 545H184V448Q252 542 348 542Q418 542 465.0 495.5Q512 449 512 366V73Q512 60 516.0 54.0Q520 48 531 41L593 4V0H347V4L409 41Q420 48 424.0 54.0Q428 60 428 73V332Q428 406 396.5 437.5Q365 469 316 469Z"/><path transform="translate(2607 0)" d="M105 -16Q80 -1 55.0 22.0Q30 45 30 73Q30 93 42.0 105.0Q54 117 70 117Q84 117 93.0 107.5Q102 98 105 84Q108 98 117.5 107.5Q127 117 140 117Q156 117 168.0 105.0Q180 93 180 73Q180 45 155.5 22.0Q131 -1 105 -16Z"/><path transform="translate(2817 0)" d="M423 -19V72Q401 39 363.0 13.5Q325 -12 267 -12Q201 -12 150.5 23.5Q100 59 71.5 119.5Q43 180 43 254Q43 337 77.5 402.0Q112 467 170.0 504.5Q228 542 298 542Q338 542 367.5 530.5Q397 519 416 503V659Q416 677 413.5 681.0Q411 685 397 690L328 713V717L491 775H500V96Q500 81 503.0 74.0Q506 67 516 61L578 23V21L415 -23ZM416 339Q416 403 393.5 439.5Q371 476 338.5 491.5Q306 507 276 507Q233 507 200.0 479.5Q167 452 149.0 402.5Q131 353 131 287Q131 205 157.5 151.5Q184 98 225.0 72.5Q266 47 310 47Q341 47 367.5 58.5Q394 70 416 87Z"/><path transform="translate(3404 0)" d="M296 -12Q224 -12 168.5 22.5Q113 57 81.5 119.5Q50 182 50 265Q50 348 80.5 410.0Q111 472 165.5 507.0Q220 542 292 542Q359 542 410.5 511.5Q462 481 491.0 423.5Q520 366 520 286H143Q145 186 191.0 124.0Q237 62 331 62Q383 62 422.5 83.5Q462 105 498 148L508 142Q480 74 428.5 31.0Q377 -12 296 -12ZM144 321H420Q418 411 381.0 461.5Q344 512 284 512Q225 512 186.5 462.5Q148 413 144 321Z"/></g></svg></span>
 </button>
 
 <main id="main">
@@ -401,10 +412,29 @@ html.hint-on .cv-hint{opacity:.9}
         <div><dt>Übernachten</dt><dd>Zimmerkontingent bis 1. Juni buchbar.</dd></div>
       </dl>
       <div class="map-card rv">
-        <iframe title="Karte zum DAS LEO – Auf dem Wenkshof in Meschede-Wallen" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen src="https://www.google.com/maps?q=Das%20Leo%20Auf%20dem%20Wenkshof%2C%20Hallohweg%202%2C%2059872%20Meschede&output=embed"></iframe>
+        <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Das%20Leo%20Auf%20dem%20Wenkshof%2C%20Hallohweg%202%2C%2059872%20Meschede" target="_blank" rel="noopener noreferrer" aria-label="Route zum Veranstaltungsort planen"><svg class="map-art" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<rect width="360" height="200" fill="var(--map-bg)"/>
+<g fill="var(--map-field)"><path d="M-10 128 C40 112 70 120 104 140 L96 210 L-10 210Z"/><path d="M228 -10 L370 -10 L370 70 C330 80 300 66 266 40Z"/><path d="M250 150 C280 136 320 140 370 156 L370 210 L236 210Z"/><circle cx="58" cy="44" r="26"/></g>
+<path d="M-10 92 C50 84 86 108 140 98 S230 54 290 76 S350 118 370 112" fill="none" stroke="var(--map-water)" stroke-width="7" stroke-linecap="round"/>
+<g fill="none" stroke="var(--map-road)" stroke-linecap="round">
+<path d="M-10 170 C60 160 120 176 180 150 S280 104 370 128" stroke-width="5"/>
+<path d="M120 -10 C126 40 150 70 176 104 S196 170 188 210" stroke-width="4"/>
+<path d="M176 104 C214 112 246 100 280 116" stroke-width="2.6"/>
+<path d="M30 -10 C40 30 26 60 44 96" stroke-width="2.2"/>
+<path d="M210 -10 C214 26 236 44 250 60" stroke-width="2.2"/>
+<path d="M300 210 C296 180 306 160 330 150" stroke-width="2.2"/>
+<path d="M140 128 L118 186 M160 140 L210 196 M88 60 L150 52" stroke-width="1.4"/>
+</g>
+<g transform="translate(184 100)">
+<circle r="22" fill="var(--map-pin)" opacity=".14"/><circle r="12" fill="var(--map-pin)" opacity=".22"/>
+<path d="M0 6 C-9 -4 -11 -9 -11 -14 A11 11 0 0 1 11 -14 C11 -9 9 -4 0 6Z" transform="translate(0 -6)" fill="var(--map-pin)"/>
+<circle cy="-20" r="4" fill="var(--map-bg)"/>
+</g>
+<g transform="translate(184 66)"><rect x="-38" y="-13" width="76" height="22" rx="11" fill="var(--map-chip)"/><text y="2.5" text-anchor="middle" fill="var(--map-chip-ink)" style="font:600 9px/1 Inter,system-ui,sans-serif;letter-spacing:.14em">DAS LEO</text></g>
+</svg></a>
         <div class="map-caption"><span>DAS LEO · Hallohweg 2 · Meschede-Wallen</span><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Das%20Leo%20Auf%20dem%20Wenkshof%2C%20Hallohweg%202%2C%2059872%20Meschede" target="_blank" rel="noopener noreferrer">Route planen ↗</a></div>
       </div>
-      <p class="note map-privacy">Die Karte wird von Google Maps bereitgestellt.</p>
+      
     </div>
   </section>
 
@@ -507,7 +537,7 @@ html.hint-on .cv-hint{opacity:.9}
         <span class="legal-divider" aria-hidden="true"></span>
         <span>Datenschutz</span>
       </div>
-      <p class="footer-credit">Diese Einladung kommt von <span class="brand-lockup"><a href="https://herzn.de/">herzn.de</a><svg class="brand-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.3c0 4.5-8.8 10.3-8.8 10.3S3.2 12.8 3.2 8.3a4.6 4.6 0 0 1 8.8-1.7 4.6 4.6 0 0 1 8.8 1.7Z"/></svg></span></p>
+      <p class="footer-credit">Diese Einladung kommt von <a class="brand-logo" href="https://herzn.de/" aria-label="herzn.de"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 -775 3900 798" fill="currentColor"><g transform="scale(1 -1)"><path transform="translate(0 0)" d="M180 0H24V4L86 41Q97 48 101.0 54.0Q105 60 105 73L110 652Q110 666 106.0 672.5Q102 679 91 683L31 706V710L184 768H189V459Q255 542 344 542Q414 542 461.0 495.5Q508 449 508 366V73Q508 60 512.0 54.0Q516 48 527 41L589 4V0H343V4L405 41Q416 48 420.0 54.0Q424 60 424 73V332Q424 406 392.5 441.0Q361 476 310 476Q271 476 239.5 459.5Q208 443 189 421V73Q189 60 193.5 54.0Q198 48 210 41L278 4V0Z"/><path transform="translate(598 0)" d="M296 -12Q224 -12 168.5 22.5Q113 57 81.5 119.5Q50 182 50 265Q50 348 80.5 410.0Q111 472 165.5 507.0Q220 542 292 542Q359 542 410.5 511.5Q462 481 491.0 423.5Q520 366 520 286H143Q145 186 191.0 124.0Q237 62 331 62Q383 62 422.5 83.5Q462 105 498 148L508 142Q480 74 428.5 31.0Q377 -12 296 -12ZM144 321H420Q418 411 381.0 461.5Q344 512 284 512Q225 512 186.5 462.5Q148 413 144 321Z"/><path transform="translate(1155 0)" d="M178 0H23V4L85 41Q96 48 100.0 54.0Q104 60 104 73L105 429Q105 443 101.5 449.5Q98 456 87 460L30 483V487L175 545H180V378Q201 449 237.0 489.5Q273 530 342 537L352 538L359 437L344 438Q307 442 279.5 439.0Q252 436 230.0 419.0Q208 402 188 364V80Q188 66 193.0 59.5Q198 53 213 45L293 4V0Z"/><path transform="translate(1519 0)" d="M450 530V520L142 35H347Q364 35 373.5 40.0Q383 45 394 60L453 142H458L448 18L446 0H27V10L335 495H164Q147 495 139.0 490.0Q131 485 122 471L71 392H66L69 507L70 530Z"/><path transform="translate(2005 0)" d="M316 469Q277 469 242.5 455.0Q208 441 188 427V73Q188 60 192.0 54.0Q196 48 207 41L269 4V0H23V4L85 41Q96 48 100.0 54.0Q104 60 104 73L105 429Q105 443 101.0 449.5Q97 456 86 460L26 483V487L179 545H184V448Q252 542 348 542Q418 542 465.0 495.5Q512 449 512 366V73Q512 60 516.0 54.0Q520 48 531 41L593 4V0H347V4L409 41Q420 48 424.0 54.0Q428 60 428 73V332Q428 406 396.5 437.5Q365 469 316 469Z"/><path transform="translate(2607 0)" d="M105 -16Q80 -1 55.0 22.0Q30 45 30 73Q30 93 42.0 105.0Q54 117 70 117Q84 117 93.0 107.5Q102 98 105 84Q108 98 117.5 107.5Q127 117 140 117Q156 117 168.0 105.0Q180 93 180 73Q180 45 155.5 22.0Q131 -1 105 -16Z"/><path transform="translate(2817 0)" d="M423 -19V72Q401 39 363.0 13.5Q325 -12 267 -12Q201 -12 150.5 23.5Q100 59 71.5 119.5Q43 180 43 254Q43 337 77.5 402.0Q112 467 170.0 504.5Q228 542 298 542Q338 542 367.5 530.5Q397 519 416 503V659Q416 677 413.5 681.0Q411 685 397 690L328 713V717L491 775H500V96Q500 81 503.0 74.0Q506 67 516 61L578 23V21L415 -23ZM416 339Q416 403 393.5 439.5Q371 476 338.5 491.5Q306 507 276 507Q233 507 200.0 479.5Q167 452 149.0 402.5Q131 353 131 287Q131 205 157.5 151.5Q184 98 225.0 72.5Q266 47 310 47Q341 47 367.5 58.5Q394 70 416 87Z"/><path transform="translate(3404 0)" d="M296 -12Q224 -12 168.5 22.5Q113 57 81.5 119.5Q50 182 50 265Q50 348 80.5 410.0Q111 472 165.5 507.0Q220 542 292 542Q359 542 410.5 511.5Q462 481 491.0 423.5Q520 366 520 286H143Q145 186 191.0 124.0Q237 62 331 62Q383 62 422.5 83.5Q462 105 498 148L508 142Q480 74 428.5 31.0Q377 -12 296 -12ZM144 321H420Q418 411 381.0 461.5Q344 512 284 512Q225 512 186.5 462.5Q148 413 144 321Z"/></g></svg></a></p>
     </div>
   </footer>
 </main>
