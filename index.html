@@ -1248,7 +1248,7 @@ function applyText(){
     }
   });
 }
-function buildAll(){ metrics(); applyColors(); applyText(); buildOverlay(); buildAtlas(); buildCover(); measure(); scheduleFrame(200); }
+function buildAll(){ metrics(); applyColors(); applyText(); buildOverlay(); buildAtlas(); buildCover(); measure(); scheduleFrame(200); prewarm(); }
 let atlasT = 0; const rebuildAtlas = () => { clearTimeout(atlasT); atlasT = setTimeout(() => { if(dragging) return rebuildAtlas(); buildAtlas(); measure(); scheduleFrame(200); }, 160); };
 
 /* ================= Automatic text colour per sheet ================= */
@@ -1359,6 +1359,19 @@ window.addEventListener('scroll', () => {
 document.addEventListener('visibilitychange', () => { if(document.hidden){ if(rafId) cancelAnimationFrame(rafId); rafId = 0; } else scheduleFrame(500); });
 
 function open(){ if(st !== 'closed') return; st = 'opening'; t0 = performance.now(); askTilt(); if(!gl) finishOpen(); scheduleFrame(1200); }
+// Bake every paper tile and every torn-edge texture ahead of time, one per idle slot, so nothing heavy is generated
+// for the first time while the page scrolls (that showed up as 100–270 ms frames in the Simulator).
+let warmQ = [];
+function prewarm(){
+  if(!gl) return;
+  warmQ = [];
+  const fams = new Set([CFG.opener.paper.fam, ...CFG.sections.map((s) => s.paper.fam)]);
+  for(const f of fams) warmQ.push(() => tile(f));
+  for(const e of [...CFG.sections.map((s) => s.edge), CFG.frame.top, CFG.frame.bottom]) if(e && e.mode && e.mode !== 'flow') warmQ.push(() => edgeFor(e));
+  const step = (dl) => { while(warmQ.length && (!dl || dl.timeRemaining() > 4)){ try { warmQ.shift()(); } catch(err){} if(!dl) break; } if(warmQ.length) idle(step); };
+  idle(step);
+}
+const idle = (fn) => ('requestIdleCallback' in window) ? requestIdleCallback(fn, { timeout: 600 }) : setTimeout(() => fn(null), 60);
 function finishOpen(){ st = 'open'; revealOn = true; cover.hidden = true; root.classList.remove('locked'); main.inert = false; applyColors(); measure(); syncPanel(); }
 function replay(){
   window.scrollTo(0, HEAD); st = 'closed'; theta = 0; revealOn = false; cover.hidden = false; root.classList.add('locked'); main.inert = true;
