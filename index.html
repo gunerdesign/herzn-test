@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Kathi &amp; Max"><meta name="theme-color" content="#2f4155"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<!doctype html><html lang="de" class="boot" style="background:#2f4155"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Kathi &amp; Max"><meta name="theme-color" content="#2f4155"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>herzn Baukasten – Kathi &amp; Max</title>
 <meta name="description" content="Die Hochzeitseinladung von Kathi &amp; Max am 24. Juni 2028 im DAS LEO – Auf dem Wenkshof.">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -330,6 +330,14 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis [data-lenis-prevent]{overscroll-behavior:contain}
 
+/* boot sheet + delayed hint and petals */
+#boot{position:fixed;left:0;right:0;top:-120px;bottom:-120px;z-index:2147483640;background:var(--boot,#2f4155);opacity:0;pointer-events:none;transition:opacity .55s ease}
+html.boot #boot{opacity:1;pointer-events:auto}
+html.boot{background:var(--boot,#2f4155)}
+.cv-hint{opacity:0;transition:opacity .7s ease}
+html.hint-on .cv-hint{opacity:.9}
+.petal-rain{transition:opacity 1.4s ease .6s}
+
 @media (prefers-reduced-motion:reduce){.cue i{animation:none}.rv,main,#tl-feier li.rv{transition:none;transform:none}}
 </style>
 
@@ -510,6 +518,7 @@ html.lenis,html.lenis body{height:auto}
   <a href="#musik" data-go="musik" aria-label="Musik" title="Musik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></svg></a>
   <a href="#merken" data-go="merken" aria-label="Termine merken" title="Termine merken"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg></a>
 </nav>
+<div id="boot" aria-hidden="true"></div>
 <div class="petal-wrap" aria-hidden="true"><div id="petals" class="petal-rain" hidden></div></div>
 <div id="ed">
   <div id="e-sheet" class="e-glass" role="region" aria-label="Baukasten">
@@ -1199,7 +1208,7 @@ function buildCover(){
   const R = Math.min(cw * .4, r.height * .25, 220);
   cover.style.setProperty('--R', R + 'px');
   let sc = Math.min(dpr, 3); if(Math.max(cw, ch) * sc > Math.min(4096, maxTex)) sc = Math.min(4096, maxTex) / Math.max(cw, ch);
-  const texts = $$('[data-finish]', cover); texts.forEach(split);
+  const texts = $$('[data-finish]:not(.cv-hint)', cover); texts.forEach(split);
   const mono = $('.cv-mono'), mr = mono.getBoundingClientRect();
   const cx = mr.left + mr.width / 2 - r.left, cy = mr.top + mr.height / 2 - r.top + TP;
   cov = { x: r.left + window.scrollX, vy: r.top - TP, y: r.top + window.scrollY - TP, w: cw, h: ch, cx, cy, R, texel: [1 / Math.round(cw * sc), 1 / Math.round(ch * sc)] };
@@ -1936,6 +1945,20 @@ secEls = SECS.map(([, , q]) => $(q));
 root.classList.add('locked'); main.inert = true; window.scrollTo(0, HEAD);
 initGL(); if(CFG.light.tiltOff) setTimeout(() => tiltStatus('Neigung aus · antippen zum Einschalten'), 0);
 for(const ev of ['click', 'touchend']) window.addEventListener(ev, () => askTilt(), { once: true });
+/* Boot: until the fonts are in and the opener has been drawn, a plain sheet in the opener colour covers everything
+   (no dock, no text in a fallback font). Then it fades away; "Tippen zum Öffnen" and the petals follow a moment later. */
+const bootEl = document.getElementById('boot');
+root.style.setProperty('--boot', CFG.opener.paper.paper);
+const hint = $('.cv-hint'); if(hint){ hint.style.color = CFG.opener.foil === 'custom' ? CFG.opener.foilA : '#d5dbe6'; }
+let booted = false;
+function endBoot(){
+  if(booted) return; booted = true;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    root.classList.remove('boot'); if(bootEl) setTimeout(() => bootEl.remove(), 700);
+    setTimeout(() => root.classList.add('hint-on'), 900);
+  }));
+}
+setTimeout(endBoot, 3500);
 buildAll(); syncPanel();
 let lastW = W, rt = 0;
 // Safari fires 'resize' whenever its toolbar grows or shrinks while scrolling (innerHeight 754 → 714 …). The layout only
@@ -1947,7 +1970,8 @@ window.addEventListener('resize', () => {
 });
 if('ResizeObserver' in window) new ResizeObserver(() => { measure(); scheduleFrame(180); }).observe(main);
 const fonts = ['400 80px "Serenity"', '400 80px "Rosalia"', 'italic 400 80px "Instrument Serif"', '400 80px "Instrument Serif"', '500 12px "Inter"', '600 12px "Inter"'];
-if(document.fonts && document.fonts.load) Promise.all(fonts.map((f) => document.fonts.load(f).catch(() => {}))).then(() => document.fonts.ready).then(() => buildAll()).catch(() => {});
+if(document.fonts && document.fonts.load) Promise.all(fonts.map((f) => document.fonts.load(f).catch(() => {}))).then(() => document.fonts.ready).then(() => { buildAll(); scheduleFrame(300); setTimeout(endBoot, 120); }).catch(endBoot);
+else setTimeout(endBoot, 300);
 window.herzn = { get config(){ return CFG; }, set(c){ commit(() => { CFG = sane(c); }, { atlas: true, cover: true }); }, open, replay, ui: UI, syncPanel };
 scheduleFrame(160);
 })();
