@@ -1529,7 +1529,7 @@ function buildOverlay(){
   // Petals live in the page itself (not fixed to the screen): Safari 26 only draws page content under its bars.
   // The page is cut into bands one screen tall; each band has its own petals that fall a little further than the band.
   // Only bands near the screen run their animations – the others are paused and hidden, so scrolling stays smooth.
-  const O = CFG.overlay, box = $('#petals'), H = Math.max(400, Math.round(VH || window.innerHeight)), D = Math.max(H, docH || 0);
+  const O = CFG.overlay, box = $('#petals'), H = Math.max(400, Math.round(($('#lvh') && $('#lvh').offsetHeight) || VH || window.innerHeight)), D = Math.max(H, docH || 0);
   const key = JSON.stringify(O) + '|' + H + '|' + Math.round(D / 200);
   box.hidden = !O.on || !O.count || reduce;
   if(key === ovKey) return; ovKey = key; box.replaceChildren(); if(bandIO){ bandIO.disconnect(); bandIO = null; }
@@ -1876,7 +1876,13 @@ initGL(); if(CFG.light.tiltOff) setTimeout(() => tiltStatus('Neigung aus · anti
 for(const ev of ['click', 'touchend']) window.addEventListener(ev, () => askTilt(), { once: true });
 buildAll(); syncPanel();
 let lastW = W, rt = 0;
-window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { const w = root.clientWidth; if(w !== lastW || st !== 'open'){ lastW = w; buildAll(); } else { VH = window.innerHeight; measure(); scheduleFrame(180); } }, 120); });
+// Safari fires 'resize' whenever its toolbar grows or shrinks while scrolling (innerHeight 754 → 714 …). The layout only
+// uses svh/lvh, so nothing moves: just note the new height. Re-measuring (and rebuilding the petals) here froze the page for ~400 ms.
+window.addEventListener('resize', () => {
+  const w = root.clientWidth;
+  if(w === lastW && st === 'open' && Math.abs(window.innerHeight - VH) < 220){ VH = window.innerHeight; scheduleFrame(60); return; }
+  clearTimeout(rt); rt = setTimeout(() => { const w2 = root.clientWidth; if(w2 !== lastW || st !== 'open'){ lastW = w2; buildAll(); } else { VH = window.innerHeight; measure(); scheduleFrame(180); } }, 120);
+});
 if('ResizeObserver' in window) new ResizeObserver(() => { measure(); scheduleFrame(180); }).observe(main);
 const fonts = ['400 80px "Serenity"', '400 80px "Rosalia"', 'italic 400 80px "Instrument Serif"', '400 80px "Instrument Serif"', '500 12px "Inter"', '600 12px "Inter"'];
 if(document.fonts && document.fonts.load) Promise.all(fonts.map((f) => document.fonts.load(f).catch(() => {}))).then(() => document.fonts.ready).then(() => buildAll()).catch(() => {});
