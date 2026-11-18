@@ -337,6 +337,8 @@ html.boot{background:var(--boot,#2f4155)}
 .cv-hint{opacity:0;transition:opacity .7s ease}
 html.hint-on .cv-hint{opacity:.9}
 .petal-rain{transition:opacity 1.4s ease .6s}
+#boot::after{content:"herzn.de";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font:500 11px/1 Inter,system-ui,-apple-system,sans-serif;letter-spacing:.32em;padding-left:.32em;color:var(--boot-ink,rgba(255,255,255,.5));animation:boot-mark .5s ease .15s both}
+@keyframes boot-mark{from{opacity:0}to{opacity:1}}
 
 @media (prefers-reduced-motion:reduce){.cue i{animation:none}.rv,main,#tl-feier li.rv{transition:none;transform:none}}
 </style>
@@ -1953,6 +1955,7 @@ for(const ev of ['click', 'touchend']) window.addEventListener(ev, () => askTilt
    (no dock, no text in a fallback font). Then it fades away; "Tippen zum Öffnen" and the petals follow a moment later. */
 const bootEl = document.getElementById('boot');
 root.style.setProperty('--boot', CFG.opener.paper.paper);
+root.style.setProperty('--boot-ink', lum(hex(CFG.opener.paper.paper)) < .42 ? 'rgba(255,255,255,.5)' : 'rgba(0,0,0,.42)');
 const hint = $('.cv-hint'); if(hint){ hint.style.color = CFG.opener.foil === 'custom' ? CFG.opener.foilA : '#d5dbe6'; }
 let booted = false;
 function endBoot(){
