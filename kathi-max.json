@@ -1,0 +1,938 @@
+{
+ "v": 1,
+ "opener": {
+  "paper": {
+   "preset": "",
+   "fam": "matt",
+   "paper": "#2f4155",
+   "fleck": ""
+  },
+  "relief": 1.6,
+  "scale": 1.25,
+  "mono": "foil",
+  "foil": "custom",
+  "foilA": "#fff9f7"
+ },
+ "sections": [
+  {
+   "paper": {
+    "preset": "",
+    "fam": "klassik",
+    "paper": "#f5efeb",
+    "fleck": ""
+   },
+   "relief": 0.5,
+   "scale": 1,
+   "roles": {
+    "titel": {
+     "fx": 5,
+     "foil": "silber",
+     "foilA": "#003f73",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "#24344a",
+     "depth": 0.3,
+     "gloss": 1,
+     "bevel": 0,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 4,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 1,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 6,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "#24344a",
+     "depth": 1.05,
+     "gloss": 0.6,
+     "bevel": 0.56,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 310,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  },
+  {
+   "paper": {
+    "preset": "",
+    "fam": "klassik",
+    "paper": "#2f4155",
+    "fleck": ""
+   },
+   "relief": 1.8,
+   "scale": 1,
+   "roles": {
+    "titel": {
+     "fx": 2,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1.5,
+     "gloss": 0.6,
+     "bevel": 0.9,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.19,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 227,
+    "thick": 1.1,
+    "shDist": 8,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1.2,
+     "align": "left",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1.3,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {
+    "fliess:0": {
+     "font": "",
+     "align": ""
+    }
+   }
+  },
+  {
+   "paper": {
+    "preset": "Action Crystal Vanilla Sorbet",
+    "fam": "perl",
+    "paper": "#e5d6d0",
+    "fleck": ""
+   },
+   "relief": 1,
+   "scale": 1,
+   "roles": {
+    "titel": {
+     "fx": 6,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "#24344a",
+     "depth": 1.1,
+     "gloss": 0.6,
+     "bevel": 0.44,
+     "prof": "grat",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 0.7,
+     "gloss": 0.6,
+     "bevel": 0.78,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 384,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1.25,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  },
+  {
+   "paper": {
+    "preset": "",
+    "fam": "sprenkel",
+    "paper": "#2f4155",
+    "fleck": ""
+   },
+   "relief": 0.35,
+   "scale": 0.75,
+   "roles": {
+    "titel": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.28,
+     "bevel": 0.72,
+     "prof": "fase",
+     "inkAmt": 0.94,
+     "grain": 0.47,
+     "fray": 0.26,
+     "stamp": true
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 421,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {
+    "label:0": {
+     "size": 1.2,
+     "align": "center"
+    },
+    "titel:0": {
+     "align": "center"
+    }
+   }
+  },
+  {
+   "paper": {
+    "preset": "",
+    "fam": "klassik",
+    "paper": "#f5efeb",
+    "fleck": ""
+   },
+   "relief": 0.45,
+   "scale": 1,
+   "roles": {
+    "titel": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "#24344a",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0.2,
+     "stamp": true
+    },
+    "zahl": {
+     "fx": 4,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 2,
+     "gloss": 0.6,
+     "bevel": 1,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 458,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "center",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "center",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1,
+     "align": "center",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  },
+  {
+   "paper": {
+    "preset": "",
+    "fam": "wolle",
+    "paper": "#2f4155",
+    "fleck": ""
+   },
+   "relief": 1.2,
+   "scale": 1.4,
+   "roles": {
+    "titel": {
+     "fx": 6,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "#f4f1ea",
+     "depth": 0.85,
+     "gloss": 1,
+     "bevel": 1,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 495,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  },
+  {
+   "paper": {
+    "preset": "",
+    "fam": "perl",
+    "paper": "#000000",
+    "fleck": ""
+   },
+   "relief": 1.75,
+   "scale": 1.65,
+   "roles": {
+    "titel": {
+     "fx": 2,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 0.3,
+     "gloss": 0.22,
+     "bevel": 1,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 532,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "center",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1.3,
+     "align": "center",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  },
+  {
+   "paper": {
+    "preset": "Bier Weizen",
+    "fam": "sprenkel",
+    "paper": "#e9e8e9",
+    "fleck": "#b07a48"
+   },
+   "relief": 1,
+   "scale": 1,
+   "roles": {
+    "titel": {
+     "fx": 6,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "#24344a",
+     "depth": 0.8,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 569,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  },
+  {
+   "paper": {
+    "preset": "",
+    "fam": "matt",
+    "paper": "#2f4155",
+    "fleck": ""
+   },
+   "relief": 1,
+   "scale": 1,
+   "roles": {
+    "titel": {
+     "fx": 2,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 0.55,
+     "gloss": 0.48,
+     "bevel": 0.52,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "zahl": {
+     "fx": 3,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0.45,
+     "fray": 0,
+     "stamp": false
+    },
+    "label": {
+     "fx": 1,
+     "foil": "silber",
+     "foilA": "#c9a14e",
+     "foilB": "#d9a79c",
+     "foilGrad": false,
+     "foilAng": 0,
+     "ink": "",
+     "depth": 1,
+     "gloss": 0.6,
+     "bevel": 0.5,
+     "prof": "rund",
+     "inkAmt": 1,
+     "grain": 0,
+     "fray": 0,
+     "stamp": false
+    }
+   },
+   "edge": {
+    "mode": "torn",
+    "seed": 606,
+    "thick": 0.55,
+    "shDist": 10,
+    "shAmt": 0.18
+   },
+   "text": {
+    "titel": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "zahl": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "label": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    },
+    "fliess": {
+     "font": "",
+     "size": 1,
+     "align": "",
+     "color": ""
+    }
+   },
+   "textEl": {}
+  }
+ ],
+ "frame": {
+  "top": {
+   "mode": "arch",
+   "seed": 476,
+   "thick": 2,
+   "shDist": 40,
+   "shAmt": 0.26
+  },
+  "bottom": {
+   "mode": "torn",
+   "seed": 13,
+   "thick": 1,
+   "shDist": 8,
+   "shAmt": 0.45,
+   "gap": 25
+  }
+ },
+ "light": {
+  "mvPaper": 1,
+  "mvShadow": 1,
+  "mvText": 0.5,
+  "mvRefl": 0.85,
+  "tiltOff": false
+ },
+ "overlay": {
+  "on": true,
+  "color": "#f3eee6",
+  "count": 20,
+  "size": 1.5,
+  "speed": 1,
+  "depth": 1,
+  "shadow": 0.5,
+  "shTilt": 1
+ }
+}
