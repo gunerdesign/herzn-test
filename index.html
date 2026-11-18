@@ -1376,7 +1376,12 @@ function prewarm(){
   idle(step);
 }
 const idle = (fn) => ('requestIdleCallback' in window) ? requestIdleCallback(fn, { timeout: 600 }) : setTimeout(() => fn(null), 60);
-function finishOpen(){ st = 'open'; revealOn = true; cover.hidden = true; root.classList.remove('locked'); main.inert = false; applyColors(); measure(); syncPanel(); }
+// Map and Spotify embeds: loading them lazily when they scroll into view stalled the page for ~800 ms mid-scroll.
+// They are loaded right after opening instead, while the guest is still looking at the top of the page.
+const lateFrames = $$('iframe[src]').map((f) => { const src = f.getAttribute('src'); f.removeAttribute('loading'); f.dataset.src = src; f.setAttribute('src', 'about:blank'); return f; });
+let framesLoaded = false;
+function loadFrames(){ if(framesLoaded) return; framesLoaded = true; lateFrames.forEach((f, i) => setTimeout(() => { f.src = f.dataset.src; }, 900 + i * 900)); }
+function finishOpen(){ loadFrames(); st = 'open'; revealOn = true; cover.hidden = true; root.classList.remove('locked'); main.inert = false; applyColors(); measure(); syncPanel(); }
 function replay(){
   window.scrollTo(0, HEAD); st = 'closed'; theta = 0; revealOn = false; cover.hidden = false; root.classList.add('locked'); main.inert = true;
   for(const r of rvs) r.el.classList.remove('in');
