@@ -1319,7 +1319,10 @@ window.addEventListener('pointermove', (e) => {
 // the real page edge, a drag past a resting edge is cancelled before Safari scrolls, and a fling that rolls into a runway
 // glides back only after scrolling has completely ended. No script moves the page while it is scrolling.
 // Diagnose: every scroll/touch event goes to the console (Safari Web-Inspector) with prefix [hz]
-const HZT0 = performance.now(), hzLog = (...a) => console.log('[hz]', ((performance.now() - HZT0) / 1000).toFixed(2), ...a);
+const HZT0 = performance.now(), hzOn = /[?&]log/.test(location.search), hzLines = [];
+let hzBox = null;
+if(hzOn){ hzBox = document.createElement('pre'); hzBox.id = 'hzlog'; hzBox.style.cssText = 'position:fixed;left:8px;top:30%;width:62%;max-height:38%;overflow:hidden;margin:0;padding:6px 8px;background:rgba(0,0,0,.72);color:#9f9;font:10px/1.3 ui-monospace,monospace;z-index:2147483646;pointer-events:none;border-radius:8px;white-space:pre-wrap'; document.body.append(hzBox); }
+const hzLog = (...a) => { const l = ((performance.now() - HZT0) / 1000).toFixed(2) + ' ' + a.join(' '); console.log('[hz]', l); if(hzBox){ hzLines.push(l); if(hzLines.length > 22) hzLines.shift(); hzBox.textContent = hzLines.join('\n'); } };
 let hzIH = window.innerHeight;
 const TAIL = 200, tail = document.createElement('div'); tail.id = 'e-tail';
 const head = document.createElement('div'); head.id = 'e-head'; head.setAttribute('aria-hidden', 'true'); main.before(head); tail.setAttribute('aria-hidden', 'true'); main.after(tail);
