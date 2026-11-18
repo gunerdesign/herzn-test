@@ -1196,7 +1196,7 @@ function buildCover(){
   const texts = $$('[data-finish]', cover); texts.forEach(split);
   const mono = $('.cv-mono'), mr = mono.getBoundingClientRect();
   const cx = mr.left + mr.width / 2 - r.left, cy = mr.top + mr.height / 2 - r.top + TP;
-  cov = { x: r.left + window.scrollX, y: r.top + window.scrollY - TP, w: cw, h: ch, cx, cy, R, texel: [1 / Math.round(cw * sc), 1 / Math.round(ch * sc)] };
+  cov = { x: r.left + window.scrollX, vy: r.top - TP, y: r.top + window.scrollY - TP, w: cw, h: ch, cx, cy, R, texel: [1 / Math.round(cw * sc), 1 / Math.round(ch * sc)] };
   const tmp = document.createElement('canvas'), ts = Math.ceil(R * 2.2 * sc); tmp.width = tmp.height = ts;
   const tcx = tmp.getContext('2d'); tcx.setTransform(sc, 0, 0, sc, ts / 2, ts / 2);
   const fam = getComputedStyle(mono).fontFamily; tcx.textAlign = 'center'; tcx.textBaseline = 'alphabetic'; tcx.lineJoin = 'round';
@@ -1511,7 +1511,8 @@ function draw(sy){
     gl.uniform4fv(cp.u('uCPar'), oc.par); gl.uniform3fv(cp.u('uCFleck'), oc.fleck);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, texCS); gl.uniform1i(cp.u('uCS'), 1);
     gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, texCB); gl.uniform1i(cp.u('uCB'), 2);
-    gl.uniform2f(cp.u('uCTexel'), cov.texel[0], cov.texel[1]); gl.uniform4f(cp.u('uCov'), cov.x, cov.y, cov.w, cov.h);
+    gl.uniform2f(cp.u('uCTexel'), cov.texel[0], cov.texel[1]); // the cover is fixed to the screen: place it from the current scroll position (it was measured before the page jumped onto the paper runway)
+    cov.y = cov.vy + window.scrollY; gl.uniform4f(cp.u('uCov'), cov.x, cov.y, cov.w, cov.h);
     gl.uniform1f(cp.u('uTheta'), theta); gl.uniform3fv(cp.u('uCover'), oc.p);
     gl.uniform2f(cp.u('uDisc'), cov.cx, cov.cy); gl.uniform1f(cp.u('uDiscR'), cov.R);
     gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
