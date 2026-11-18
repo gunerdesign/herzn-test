@@ -1326,7 +1326,11 @@ const hzLog = (...a) => { const l = ((performance.now() - HZT0) / 1000).toFixed(
 let hzIH = window.innerHeight;
 const TAIL = 200, tail = document.createElement('div'); tail.id = 'e-tail';
 const head = document.createElement('div'); head.id = 'e-head'; head.setAttribute('aria-hidden', 'true'); main.before(head); tail.setAttribute('aria-hidden', 'true'); main.after(tail);
-const maxScroll = () => Math.max(HEAD, document.documentElement.scrollHeight - TAIL - window.innerHeight);
+// Safari's toolbar changes innerHeight by ~40 px while scrolling. With the live value the resting point moved under the
+// page and the page glided back by itself (the "jump" at the bottom). The smallest height seen (toolbar fully shown) keeps it still.
+let innerMin = 1e9, innerMinW = 0;
+const viewH = () => { if(root.clientWidth !== innerMinW){ innerMinW = root.clientWidth; innerMin = 1e9; } return innerMin = Math.min(innerMin, window.innerHeight); };
+const maxScroll = () => Math.max(HEAD, document.documentElement.scrollHeight - TAIL - viewH());
 let touching = false, touchY0 = 0, hzNC = 0, hzPD = 0;
 window.addEventListener('touchstart', () => { hzNC = 0; hzPD = 0; }, { passive: true });
 window.addEventListener('touchstart', (e) => { touching = true; touchY0 = e.touches[0].clientY; hzLog('touchstart y', Math.round(window.scrollY), 'max', Math.round(maxScroll())); }, { passive: true });
